@@ -3,7 +3,7 @@ import React from "react"
 import { HeroBanner, ProductCard, Wrapper } from "@/components"
 
 export default function Home() {
-  const productCards = Array.from(Array(40), (_, index) => <ProductCard key={index} />)
+  const productCards = Array.from(Array(40), (_, index) => (<ProductCard key={index} condition={(index % 3) + 1} />))
   return (
     <>
       <HeroBanner/>
