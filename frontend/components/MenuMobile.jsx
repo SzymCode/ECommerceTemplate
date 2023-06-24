@@ -52,9 +52,8 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu, categories }) 
                 </Link>
               </li>
             )}
-
           </React.Fragment>
-        );
+        )
       })}
     </ul>
   )
