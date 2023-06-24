@@ -6,7 +6,7 @@ import { BsChevronDown } from "react-icons/bs"
 const data = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "About", url: "/about" },
-  { id: 3, name: "Categories", url: "/", subMenu: true },
+  { id: 3, name: "Categories", url: "/category", subMenu: true },
   { id: 4, name: "Contact", url: "/contact" }
 ]
 
@@ -30,7 +30,7 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
                   <ul className='bg-white absolute top-6 left-0 min-w-[180px] px-1 text-black shadow-lg'>
                     {subMenuData.map((submenu) => {
                       return (
-                        <Link key={submenu.id} href={item?.url}>
+                        <Link key={submenu.id} href={`/category/${submenu.name}`}>
                           <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.05] rounded-md">
                             {submenu.name}
                             <span className="opacity-50 text-sm">
