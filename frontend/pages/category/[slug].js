@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
-import Wrapper from "@/components/Wrapper"
-import ProductCard from "@/components/ProductCard"
+import  { ProductCard, Wrapper } from "@/components"
 
 const Category = () => {
   return (

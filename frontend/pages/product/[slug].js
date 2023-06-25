@@ -1,12 +1,12 @@
 import React, { useState } from "react"
 import { IoMdHeartEmpty } from "react-icons/io"
-import Wrapper from "@/components/Wrapper"
-import ProductDetailsCarousel from "@/components/ProductDetailsCarousel"
 import ReactMarkdown from "react-markdown"
 
+import { Wrapper, ProductDetailsCarousel, RelatedProducts } from "@/components"
+
 const ProductDetails = ({ product, products }) => {
-  const [selectedSize, setSelectedSize] = useState();
-  const [showError, setShowError] = useState(false);
+  const [selectedSize, setSelectedSize] = useState()
+  const [showError, setShowError] = useState(false)
 
   return (
     <div className="w-full md:py-20">
@@ -49,8 +49,8 @@ const ProductDetails = ({ product, products }) => {
               <IoMdHeartEmpty size={20} />
             </button>
           </div>
-
         </div>
+        <RelatedProducts/>
       </Wrapper>
     </div>
   )

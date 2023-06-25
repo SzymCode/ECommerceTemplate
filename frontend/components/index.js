@@ -4,5 +4,7 @@ export { default as HeroBanner } from "./HeroBanner"
 export { default as Menu } from "./Menu"
 export { default as MenuMobile } from "./MenuMobile"
 export { default as ProductCard } from "./ProductCard"
+export { default as ProductDetailsCarousel } from "./ProductDetailsCarousel"
+export { default as RelatedProducts } from "./RelatedProducts"
 export { default as Wrapper } from "./Wrapper"
 
