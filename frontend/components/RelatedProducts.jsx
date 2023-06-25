@@ -4,6 +4,7 @@ import Carousel from "react-multi-carousel"
 import "react-multi-carousel/lib/styles.css"
 import ProductCard from "./ProductCard"
 
+
 const RelatedProducts = () => {
   const productCards = Array.from(Array(40), (_, index) => (<ProductCard key={index} condition={(index % 3) + 1} />))
   const responsive = {
