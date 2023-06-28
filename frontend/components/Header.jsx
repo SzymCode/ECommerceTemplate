@@ -31,7 +31,7 @@ const Header = () => {
 
         <div className="flex items-center gap-2 text-black">
 
-          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-red-500/[0.15] cursor-pointer relative">
+          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-red-500/[0.2] transform duration-300 ease-linear cursor-pointer relative">
             <IoMdHeartEmpty className="text-[19px] md:text-[24px]" />
             <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
               12
@@ -39,7 +39,7 @@ const Header = () => {
           </div>
 
           <Link href="/cart">
-            <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-yellow-500/[0.15] cursor-pointer relative">
+            <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-yellow-500/[0.2] transform duration-300 ease-linear cursor-pointer relative">
               <BsCart className="text-[15px] md:text-[20px]" />
               <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center px-[2px] md:px-[5px]">
                 21
@@ -47,7 +47,7 @@ const Header = () => {
             </div>
           </Link>
 
-          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center hover:bg-black/[0.05] cursor-pointer relative -mr-2">
+          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex md:hidden justify-center items-center duration-200 hover:bg-black/[0.05] cursor-pointer relative -mr-2">
             {mobileMenu ? (
               <VscChromeClose className="text-[16px]" onClick={() => setMobileMenu(false)} />
             ) : (

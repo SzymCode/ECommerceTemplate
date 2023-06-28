@@ -65,16 +65,24 @@ const Footer = () => {
         </div>
 
         <div className="flex gap-4 justify-center md:justify-start">
-          <Link href="https://facebook.com" className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black hover:bg-blue-800/[0.8] cursor-pointer">
+          <Link href="https://facebook.com"
+                className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black
+                transform duration-300 hover:bg-blue-950 cursor-pointer">
             <FaFacebookF size={20} />
           </Link>
-          <Link href="https://twitter.com" className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black hover:bg-sky-400/[0.8] cursor-pointer">
+          <Link href="https://twitter.com"
+                className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black
+                transform duration-300 hover:bg-sky-400/[0.8] cursor-pointer">
             <FaTwitter size={20} />
           </Link>
-          <Link href="https://youtube.com" className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black hover:bg-red-600/[0.9] cursor-pointer">
+          <Link href="https://youtube.com"
+                className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black
+                transform duration-300 hover:bg-red-600/[0.9] cursor-pointer">
             <FaYoutube size={20} />
           </Link>
-          <Link href="https://instagram.com" className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black hover:bg-gradient-to-br from-indigo-600 via-pink-500 to-yellow-500  cursor-pointer">
+          <Link href="https://instagram.com"
+                className="w-10 h-10 rounded-full bg-white/[0.25] flex items-center justify-center text-black
+                transform duration-300 hover:bg-gradient-to-br from-indigo-600 via-pink-500 to-yellow-500  cursor-pointer">
             <FaInstagram size={20} />
           </Link>
         </div>
