@@ -3,7 +3,7 @@ import '@/styles/globals.css'
 import { Footer, Header } from "@/components"
 export default function App({ Component, pageProps }) {
   return (
-    <div className="bg-white">
+    <div className="bg-white text-black">
       <Header/>
       <Component {...pageProps} />
       <Footer/>

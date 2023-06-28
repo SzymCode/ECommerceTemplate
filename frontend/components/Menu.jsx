@@ -10,12 +10,7 @@ const data = [
   { id: 4, name: "Contact", url: "/contact" }
 ]
 
-const subMenuData = [
-  { id: 1, name: "Category1", doc_count: 10 },
-  { id: 2, name: "Category2", doc_count: 20 },
-  { id: 3, name: "Category3", doc_count: 30 },
-  { id: 4, name: "Category4", doc_count: 40 }
-]
+
 const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
   return (
     <ul className='hidden md:flex items-center gap-8 font-medium text-black'>
@@ -28,13 +23,13 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
                 <BsChevronDown size={14}/>
                 {showCatMenu && (
                   <ul className='bg-white absolute top-6 left-0 min-w-[180px] px-1 text-black shadow-lg'>
-                    {subMenuData.map((submenu) => {
+                    {categories?.map(({ attributes: c, id }) => {
                       return (
-                        <Link key={submenu.id} href={`/category/${submenu.name}`}>
-                          <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.05] rounded-md">
-                            {submenu.name}
+                        <Link key={id} href={`/category/${c.slug}`} onClick={() => setShowCatMenu(false)}>
+                          <li className="h-12 flex justify-between items-center px-3 hover:bg-black/[0.03] rounded-md">
+                            {c.name}
                             <span className="opacity-50 text-sm">
-                              {submenu.doc_count}
+                              {`(${c.products.data.length})`}
                             </span>
                           </li>
                         </Link>
