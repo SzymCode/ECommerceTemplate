@@ -5,7 +5,7 @@ import Image from 'next/image'
 const ProductCard = ({ data: { attributes: p, id } }) => {
   return (
     <div className="transform duration-200 hover:scale-105">
-      <Link href={`/products/${p.slug}`} className="overflow-hidden bg-grey cursor-pointer">
+      <Link href={`/product/${p.slug}`} className="overflow-hidden bg-grey cursor-pointer">
 
         <div className="p-4 bg-slate-200 justify-center">
           <Image className="rounded-2xl" width={200} height={200} src={p.thumbnail.data.attributes.url} alt={p.name}/>
