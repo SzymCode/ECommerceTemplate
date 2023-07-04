@@ -1,12 +1,17 @@
 import '@/styles/globals.css'
+import { Provider } from "react-redux"
+import store from "@/store/store"
+
 
 import { Footer, Header } from "@/components"
 export default function App({ Component, pageProps }) {
   return (
     <div className="bg-white text-black">
-      <Header/>
-      <Component {...pageProps} />
-      <Footer/>
+      <Provider store={store}>
+        <Header />
+        <Component {...pageProps} />
+        <Footer />
+      </Provider>
     </div>
   )
 }

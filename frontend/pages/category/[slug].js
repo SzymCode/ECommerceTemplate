@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react"
 import useSWR from "swr"
 import { useRouter } from "next/router"
 
-import  { ProductCard, Wrapper } from "@/components"
+import { ProductCard, Wrapper } from "@/components"
 import { fetchDataFromApi } from "@/utils/api"
 
-const maxResult = 5
+const maxResult = 20
 
 const Category = ({ category, products, slug }) => {
   const [pageIndex, setPageIndex] = useState(1)

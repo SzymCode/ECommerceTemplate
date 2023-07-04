@@ -1,31 +1,66 @@
 import Image from "next/image"
 import React from "react"
 import { RiDeleteBin6Line } from "react-icons/ri"
+import { updateCart, removeFromCart } from "@/store/cartSlice"
+import { useDispatch } from "react-redux"
 
-const CartItem = () => {
+const CartItem = ({ data }) => {
+  const p = data.attributes
+  const dispatch = useDispatch()
+
+  const updateCartItem = (e, key) => {
+    let payload = {
+      key,
+      val: key === "quantity" ? parseInt(e.target.value) : e.target.value,
+      id: data.id,
+    }
+    dispatch(updateCart(payload))
+  }
+
   return (
-    <div className="flex py-5 gap-3 md:gap-5 border-b transform duration-200 hover:scale-[102%]">
-      <div className="shrink-0 aspect-square w-[50px] md:w-[90px]">
-        <Image src="/react-logo.png" alt="product" width={100} height={100}/>
+    <div className="flex py-5 gap-3 md:gap-5 border-b">
+      <div className="shrink-0 aspect-square w-[50px] md:w-[80px]">
+        <Image src={p.thumbnail.data.attributes.url} alt={p.name} width={80} height={80}/>
       </div>
 
+
       <div className="w-full flex flex-col">
-        <div className="flex md:flex-row justify-between">
+        <div className="flex flex-col md:flex-row justify-between">
           <div className="text-lg md:text-2xl font-semibold text-black/[0.8]">
-            PRODUCT TITLE
+            {p.name}
           </div>
 
+          <div className="text-sm md:text-md font-medium text-black/[0.5] block md:hidden">
+            {p.subtitle}
+          </div>
 
-          <div className="flex flex-col items-center">
-            <div className="text-sm md:text-md font-bold text-black/[0.5] mt-2">
-              99.99 zł
-            </div>
-            <RiDeleteBin6Line className="cursor-pointer text-black/[0.5] hover:text-black text-[16px] md:text-[20px] mt-5" />
+          <div className="text-sm md:text-md font-bold text-black/[0.5] mt-2">
+            {p.price}zł
           </div>
         </div>
 
-        <div className="text-md font-medium text-black/[0.5] -mt-8 max-w-xs overflow-hidden max-h-12">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div className="text-md font-medium text-black/[0.5] hidden md:block">
+          {p.subtitle}
+        </div>
+
+        <div className="flex items-center justify-between mt-4">
+          <div className="flex items-center gap-2 md:gap-10 text-black/[0.5] text-sm md:text-md">
+            <div className="flex items-center gap-1">
+              <div className="font-semibold">
+                Quantity:
+              </div>
+              <select className="hover:text-black" onChange={(e) => updateCartItem(e, "quantity")}>
+                {Array.from({ length: 10 }, (_, i) => i + 1).map((q, i) => {
+                  return (
+                    <option key={i} value={q} selected={data.quantity === q}>
+                      {q}
+                    </option>
+                  )
+                })}
+              </select>
+            </div>
+          </div>
+          <RiDeleteBin6Line className="cursor-pointer text-black/[0.5] hover:text-black text-[16px] md:text-[20px]" onClick={() => dispatch(removeFromCart({ id: data.id }))} />
         </div>
       </div>
     </div>
@@ -33,4 +68,3 @@ const CartItem = () => {
 }
 
 export default CartItem
-
