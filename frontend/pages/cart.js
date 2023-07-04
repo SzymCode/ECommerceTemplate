@@ -2,18 +2,41 @@ import React, { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSelector } from "react-redux"
+import { makePaymentRequest } from "@/utils/api"
+import { loadStripe } from "@stripe/stripe-js"
 
 import { CartItem, Wrapper } from "@/components"
 
-
+const stripePromise = loadStripe(
+  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
+)
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
   const { cartItems } = useSelector((state) => state.cart);
 
   const subTotal = useMemo(() => {
-    return cartItems.reduce((total, val) => total + val.attributes.price, 0)
-  }, [cartItems])
+    return cartItems.reduce(
+      (total, val) => total + val.attributes.price,
+      0
+    );
+  }, [cartItems]);
+
+  const handlePayment = async () => {
+    try {
+      setLoading(true)
+      const stripe = await stripePromise
+      const res = await makePaymentRequest("/api/orders", {
+        products: cartItems
+      })
+      await stripe.redirectToCheckout({
+        sessionId: res.stripeSession.id,
+      })
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    }
+  }
 
   return (
     <div className="w-full md:py-20">
@@ -46,11 +69,11 @@ const Cart = () => {
                     <div className="uppercase text-md md:text-lg font-medium text-black">
                       Subtotal
                     </div>
-
                     <div className="text-md md:text-lg font-medium text-black">
                       {subTotal}zł
                     </div>
                   </div>
+
                   <div className="text-sm md:text-md py-5 border-t mt-5">
                     The subtotal reflects the total price of
                     your order, including duties and taxes,
@@ -59,6 +82,10 @@ const Cart = () => {
                     international transaction fees.
                   </div>
                 </div>
+
+                <button onClick={ handlePayment } className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center">
+                  Checkout
+                </button>
               </div>
             </div>
           </>
