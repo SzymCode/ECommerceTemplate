@@ -39,7 +39,7 @@ const Category = ({ category, products, slug }) => {
             </button>
 
             <span className="font-bold">
-              {`${pageIndex} of ${data && data.meta.pagination.pageCount}`}
+              {`${pageIndex} of ${data && data?.meta?.pagination.pageCount}`}
             </span>
 
             <button className={`rounded py-2 px-4 bg-black text-white disabled:bg-gray-200 disabled:text-gray-500`} disabled={pageIndex === (data && data.meta.pagination.pageCount)} onClick={() => setPageIndex(pageIndex + 1)}>
