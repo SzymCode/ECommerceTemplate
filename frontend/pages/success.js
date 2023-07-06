@@ -1,10 +1,12 @@
 import React from "react"
 import Wrapper from "@/components/Wrapper"
 import Link from "next/link"
+import RunConfetti from "../components/Confetti";
 
 const Success = () => {
   return (
     <div className="min-h-[450px] flex items-center text-black">
+      <RunConfetti/>
       <Wrapper>
         <div className="max-w-[600px] rounded-lg p-5 border border-black mx-auto flex flex-col mb-5">
           <div className="text-2xl font-bold">

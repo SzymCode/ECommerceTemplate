@@ -50,3 +50,10 @@ npm run dev
 
 </details>  
 
+<details><summary> <h2> ❓ Usage  </summary>
+
+• **_localhost:3000_** - ECommerceTemplate main page
+
+• **_localhost:1337/admin_** - Strapi admin panel
+
+</details>  

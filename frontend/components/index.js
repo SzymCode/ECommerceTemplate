@@ -1,4 +1,5 @@
 export { default as CartItem } from "./CartItem"
+export { default as RunConfetti } from "./Confetti"
 export { default as Footer } from "./Footer"
 export { default as Header } from "./Header"
 export { default as HeroBanner } from "./HeroBanner"
