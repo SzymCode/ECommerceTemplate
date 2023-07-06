@@ -40,7 +40,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu, categories }) 
                             </span>
                           </li>
                         </Link>
-                      );
+                      )
                     })}
                   </ul>
                 )}
