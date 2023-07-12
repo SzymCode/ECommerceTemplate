@@ -2,10 +2,12 @@ import React, { useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { useSelector } from "react-redux"
-import { makePaymentRequest } from "@/utils/api"
 import { loadStripe } from "@stripe/stripe-js"
+import { motion } from "framer-motion"
 
 import { CartItem, Wrapper } from "@/components"
+import { makePaymentRequest } from "@/utils/api"
+
 
 const stripePromise = loadStripe(
   process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
@@ -13,14 +15,14 @@ const stripePromise = loadStripe(
 
 const Cart = () => {
   const [loading, setLoading] = useState(false);
-  const { cartItems } = useSelector((state) => state.cart);
+  const { cartItems } = useSelector((state) => state.cart)
 
   const subTotal = useMemo(() => {
     return cartItems.reduce(
       (total, val) => total + val.attributes.price,
       0
-    );
-  }, [cartItems]);
+    )
+  }, [cartItems])
 
   const handlePayment = async () => {
     try {
@@ -39,7 +41,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="w-full md:py-20">
+    <div className="w-full py-20">
       <Wrapper>
         {cartItems.length > 0 && (
           <>
@@ -92,7 +94,11 @@ const Cart = () => {
         )}
 
         {cartItems.length < 1 && (
-          <div className="flex-[2] flex flex-col items-center pb-[50px] md:-mt-14">
+          <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+              className="flex-[2] flex flex-col items-center pb-[50px]">
             <span className="text-xl font-bold">
               Your cart is empty
             </span>
@@ -101,10 +107,10 @@ const Cart = () => {
               <br />
               Go ahead and explore top categories.
             </span>
-            <Link href="/" className="py-4 px-8 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8">
+            <Link href="/" className="w-[260px] mt-10 py-4 rounded-full bg-black text-white text-lg font-medium active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center transition-all duration-300">
               Continue Shopping
             </Link>
-          </div>
+          </motion.div>
         )}
       </Wrapper>
     </div>

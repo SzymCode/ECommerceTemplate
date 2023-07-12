@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import useSWR from "swr"
 import { useRouter } from "next/router"
+import { motion } from "framer-motion"
 
 import { ProductCard, Wrapper } from "@/components"
 import { fetchDataFromApi } from "@/utils/api"
@@ -18,7 +19,11 @@ const Category = ({ category, products, slug }) => {
   const { data, error, isLoading } = useSWR(`/api/products?populate=*&[filters][category][slug][$eq]=${slug}&pagination[page]=${pageIndex}&pagination[pageSize]=${maxResult}`, fetchDataFromApi, {fallbackData: products})
 
   return (
-    <div className="w-full md:py-20 relative">
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3 }}
+        className="w-full md:py-20 relative">
       <Wrapper>
         <div className="text-center max-w-[800px] mx-auto mt-8 md:mt-0">
           <div className="text-[28px] md:text-[34px] mb-5 font-semibold leading-tight">
@@ -49,7 +54,7 @@ const Category = ({ category, products, slug }) => {
         )}
 
       </Wrapper>
-    </div>
+    </motion.div>
   )
 }
 

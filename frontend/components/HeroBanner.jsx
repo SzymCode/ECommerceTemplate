@@ -2,10 +2,15 @@ import React from "react"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
 import { Carousel } from "react-responsive-carousel"
 import { BiArrowBack } from "react-icons/bi"
+import { motion } from "framer-motion"
 
 const HeroBanner = () => {
   return (
-    <div className="relative text-white text-[20px] w-full max-w-[1360px] mx-auto" >
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
+        className="relative text-white text-[20px] w-full max-w-[1360px] mx-auto" >
       <Carousel autoPlay={true} infiniteLoop={true} showThumbs={false} showIndicators={false} showStatus={false}
         renderArrowPrev={(clickHandler, hasPrev) => (
           <div onClick={clickHandler} className="absolute right-[31px] md:right-[51px] bottom-0 w-[30px] md:w-[50px] h-[30px] md:h-[50px] bg-black z-10 flex items-center justify-center cursor-pointer hover:opacity-75">
@@ -34,7 +39,7 @@ const HeroBanner = () => {
         </div>
 
       </Carousel>
-    </div>
+    </motion.div>
   )
 }
 

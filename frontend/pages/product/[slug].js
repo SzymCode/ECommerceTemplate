@@ -4,6 +4,7 @@ import ReactMarkdown from "react-markdown"
 import { useSelector, useDispatch } from "react-redux"
 import { ToastContainer, toast } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
+import { motion } from "framer-motion"
 
 import { addToCart } from "@/store/cartSlice"
 import { ProductDetailsCarousel, RelatedProducts, Wrapper } from "@/components"
@@ -34,7 +35,11 @@ const ProductDetails = ({ product, products }) => {
     <div className="w-full md:py-20">
       <ToastContainer />
       <Wrapper>
-        <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.2 }}
+            className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
           <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
             <ProductDetailsCarousel images={p.image.data} />
           </div>
@@ -81,7 +86,7 @@ const ProductDetails = ({ product, products }) => {
               <IoMdHeartEmpty size={20} />
             </button>
           </div>
-        </div>
+        </motion.div>
         <RelatedProducts products={products} />
       </Wrapper>
     </div>
