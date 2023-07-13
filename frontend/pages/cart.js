@@ -1,27 +1,21 @@
 import React, { useMemo, useState } from "react"
-import Image from "next/image"
-import Link from "next/link"
 import { useSelector } from "react-redux"
 import { loadStripe } from "@stripe/stripe-js"
 import { motion } from "framer-motion"
+import { useRouter } from "next/router"
 
 import { CartItem, Wrapper } from "@/components"
 import { makePaymentRequest } from "@/utils/api"
 
-
-const stripePromise = loadStripe(
-  process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY
-)
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
 const Cart = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
   const { cartItems } = useSelector((state) => state.cart)
+  const router = useRouter()
 
   const subTotal = useMemo(() => {
-    return cartItems.reduce(
-      (total, val) => total + val.attributes.price,
-      0
-    )
+    return cartItems.reduce((total, val) => total + val.attributes.price, 0)
   }, [cartItems])
 
   const handlePayment = async () => {
@@ -32,7 +26,7 @@ const Cart = () => {
         products: cartItems
       })
       await stripe.redirectToCheckout({
-        sessionId: res.stripeSession.id,
+        sessionId: res.stripeSession.id
       })
     } catch (error) {
       setLoading(false)
@@ -41,7 +35,11 @@ const Cart = () => {
   }
 
   return (
-    <div className="w-full py-20">
+    <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.3, delay: 0.4 }}
+        className="w-full py-20">
       <Wrapper>
         {cartItems.length > 0 && (
           <>
@@ -77,15 +75,14 @@ const Cart = () => {
                   </div>
 
                   <div className="text-sm md:text-md py-5 border-t mt-5">
-                    The subtotal reflects the total price of
-                    your order, including duties and taxes,
-                    before any applicable discounts. It does
-                    not include delivery costs and
-                    international transaction fees.
+                    The subtotal reflects the total price of your order,
+                    including duties and taxes, before any applicable discounts.
+                    It does not include delivery costs and international
+                    transaction fees.
                   </div>
                 </div>
 
-                <button onClick={ handlePayment } className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center">
+                <button onClick={ handlePayment } className="w-full py-4 rounded-full bg-black text-white text-lg font-medium  active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center transition-all duration-300">
                   Checkout
                 </button>
               </div>
@@ -107,14 +104,14 @@ const Cart = () => {
               <br />
               Go ahead and explore top categories.
             </span>
-            <Link href="/" className="w-[260px] mt-10 py-4 rounded-full bg-black text-white text-lg font-medium active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center transition-all duration-300">
+            <button onClick={() => router.push("/")} className="w-[260px] mt-10 py-4 rounded-full bg-black text-white text-lg font-medium active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center transition-all duration-300">
               Continue Shopping
-            </Link>
+            </button>
           </motion.div>
         )}
       </Wrapper>
-    </div>
-  )
-}
+    </motion.div>
+  );
+};
 
-export default Cart
+export default Cart;

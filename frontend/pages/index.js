@@ -23,11 +23,15 @@ export default function Home({ products }) {
             Experience effortless browsing and seamless purchases on our meticulously designed website, ensuring a comfortable and enjoyable online shopping journey.
           </div>
         </motion.div>
-        <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 my-14 px-5 md:px-0 justify-center">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.3, delay: 0.6 }}
+            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 my-14 px-5 md:px-0 justify-center">
           {products?.data?.map((product) => (
             <ProductCard key={product?.id} data={product} />
           ))}
-        </div>
+        </motion.div>
       </Wrapper>
     </div>
   )

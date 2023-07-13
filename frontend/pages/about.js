@@ -15,14 +15,14 @@ const AboutPage = () => {
         <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.2, delay: 0.6 }}
+            transition={{ duration: 0.2, delay: 0.4 }}
             className="text-3xl mb-5">
           ECommerceTemplate
         </motion.p>
         <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 0.2, delay: 0.8 }}
+            transition={{ duration: 0.2, delay: 0.6 }}
             className="max-w-3xl">
           Empower your online business with customizable templates and
           powerful features, designed to help you create stunning e-commerce
