@@ -27,7 +27,7 @@ export default function Home({ products }) {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.3, delay: 0.6 }}
-            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 my-14 px-5 md:px-0 justify-center">
+            className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-5 my-14 px-5 md:px-0 justify-center">
           {products?.data?.map((product) => (
             <ProductCard key={product?.id} data={product} />
           ))}

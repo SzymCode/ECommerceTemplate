@@ -8,7 +8,6 @@ import { BsCart } from "react-icons/bs"
 import { BiMenuAltRight } from "react-icons/bi"
 import { VscChromeClose } from "react-icons/vsc"
 
-
 import { Menu, MenuMobile, Wrapper } from "@/components"
 import { fetchDataFromApi } from "@/utils/api"
 
@@ -18,6 +17,7 @@ const Header = () => {
   const [show, setShow] = useState("translate-y-0")
   const [categories, setCategories] = useState(null)
   const { cartItems } = useSelector((state) => state.cart)
+  const { wishlistItems } = useSelector((state) => state.wishlist)
 
   useEffect(() => {
     fetchCategories()
@@ -43,9 +43,16 @@ const Header = () => {
 
         <div className="flex items-center gap-2 text-black">
 
-          <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-red-500/[0.2] transform duration-300 ease-linear cursor-pointer relative">
-            <IoMdHeartEmpty className="text-[19px] md:text-[24px]" />
-          </div>
+          <Link href="/wishlist">
+            <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-red-500/[0.2] transform duration-300 ease-linear cursor-pointer relative">
+              <IoMdHeartEmpty className="text-[19px] md:text-[24px]" />
+              {wishlistItems.length > 0 && (
+                <div className="h-[14px] md:h-[18px] min-w-[14px] md:min-w-[18px] rounded-full bg-red-600 absolute top-1 left-5 md:left-7 text-white text-[10px] md:text-[12px] flex justify-center items-center ">
+                  {wishlistItems.reduce((total, item) => total + item.quantity, 0)}
+                </div>
+              )}
+            </div>
+          </Link>
 
           <Link href="/cart">
             <div className="w-8 md:w-12 h-8 md:h-12 rounded-full flex justify-center items-center hover:bg-yellow-500/[0.2] duration-300 cursor-pointer relative">

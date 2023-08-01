@@ -8,5 +8,6 @@ export { default as MenuMobile } from "./MenuMobile"
 export { default as ProductCard } from "./ProductCard"
 export { default as ProductDetailsCarousel } from "./ProductDetailsCarousel"
 export { default as RelatedProducts } from "./RelatedProducts"
+export { default as WishlistItem } from "./WishlistItem"
 export { default as Wrapper } from "./Wrapper"
 
