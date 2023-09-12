@@ -12,15 +12,14 @@ import { addToWishlist, removeFromWishlist } from "@/store/wishlistSlice"
 import { ProductDetailsCarousel, RelatedProducts, Wrapper } from "@/components"
 import { fetchDataFromApi } from "@/utils/api"
 
-const ProductDetails = ({ product, products }) => {
-  const [selectedSize, setSelectedSize] = useState()
+export default function ProductDetails({ product, products }) {
   const [showError, setShowError] = useState(false)
   const dispatch = useDispatch()
   const p = product?.data?.[0]?.attributes
   const [canAddToCart, setCanAddToCart] = useState(true)
   const [isInWishlist, setIsInWishlist] = useState(false)
 
-  const addToCartWithDelay = () => {
+  function addToCartWithDelay() {
     if (canAddToCart) {
       dispatch(
         addToCart({
@@ -36,7 +35,7 @@ const ProductDetails = ({ product, products }) => {
     }
   }
 
-  const handleAddToWishlist = () => {
+  function handleAddToWishlist() {
     if (!isInWishlist) {
       dispatch(
         addToWishlist({
@@ -56,7 +55,7 @@ const ProductDetails = ({ product, products }) => {
     }
   }
 
-  const notify = (message) => {
+  function notify(message) {
     toast.success(message, {
       position: "bottom-right",
       autoClose: 1400,
@@ -125,8 +124,6 @@ const ProductDetails = ({ product, products }) => {
     </div>
   )
 }
-
-export default ProductDetails
 
 
 export async function getStaticPaths() {

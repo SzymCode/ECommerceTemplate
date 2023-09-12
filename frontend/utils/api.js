@@ -1,6 +1,6 @@
 import { API_URL, STRAPI_API_TOKEN } from "./urls"
 
-export const fetchDataFromApi = async (endpoint) => {
+export async function fetchDataFromApi(endpoint) {
   const options = {
     method: "GET",
     headers: {
@@ -13,7 +13,7 @@ export const fetchDataFromApi = async (endpoint) => {
   return data
 }
 
-export const makePaymentRequest = async (endpoint, payload) => {
+export async function makePaymentRequest(endpoint, payload) {
   const res = await fetch(`${API_URL}${endpoint}`, {
     method: "POST",
     headers: {

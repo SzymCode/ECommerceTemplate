@@ -4,7 +4,7 @@ import { Carousel } from "react-responsive-carousel"
 import { BiArrowBack } from "react-icons/bi"
 import { motion } from "framer-motion"
 
-const HeroBanner = () => {
+export default function HeroBanner() {
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -42,5 +42,3 @@ const HeroBanner = () => {
     </motion.div>
   )
 }
-
-export default HeroBanner

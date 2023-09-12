@@ -8,7 +8,7 @@ import { fetchDataFromApi } from "@/utils/api"
 
 const maxResult = 20
 
-const Category = ({ category, products, slug }) => {
+export default function Category({ category, products, slug }) {
   const [pageIndex, setPageIndex] = useState(1)
   const { query } = useRouter()
 
@@ -58,7 +58,6 @@ const Category = ({ category, products, slug }) => {
   )
 }
 
-export default Category
 
 export async function getStaticPaths() {
   const category = await fetchDataFromApi("/api/categories?populate=*")

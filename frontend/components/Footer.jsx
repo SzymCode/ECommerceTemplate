@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 
 import { Wrapper } from "@/components"
 
-const Footer = () => {
+export default function Footer() {
   return (
     <motion.footer
         initial={{ opacity: 0 }}
@@ -117,5 +117,3 @@ const Footer = () => {
     </motion.footer>
   )
 }
-
-export default Footer

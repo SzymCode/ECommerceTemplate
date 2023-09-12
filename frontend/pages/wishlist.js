@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useRouter } from "next/router"
 import { WishlistItem, Wrapper } from "@/components"
 
-const Wishlist = () => {
+export default function Wishlist() {
   const { wishlistItems } = useSelector((state) => state.wishlist)
   const router = useRouter()
 
@@ -51,5 +51,3 @@ const Wishlist = () => {
     </motion.div>
   )
 }
-
-export default Wishlist

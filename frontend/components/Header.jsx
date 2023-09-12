@@ -11,7 +11,7 @@ import { VscChromeClose } from "react-icons/vsc"
 import { Menu, MenuMobile, Wrapper } from "@/components"
 import { fetchDataFromApi } from "@/utils/api"
 
-const Header = () => {
+export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false)
   const [showCatMenu, setShowCatMenu] = useState(false)
   const [show, setShow] = useState("translate-y-0")
@@ -23,7 +23,7 @@ const Header = () => {
     fetchCategories()
   }, [])
 
-  const fetchCategories = async () => {
+  async function fetchCategories() {
     const { data } = await fetchDataFromApi("/api/categories?populate=*")
     setCategories(data)
   }
@@ -78,5 +78,3 @@ const Header = () => {
     </header>
   )
 }
-
-export default Header

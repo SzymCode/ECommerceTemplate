@@ -4,7 +4,7 @@ import Link from "next/link"
 
 import RunConfetti from "@/components/Confetti"
 
-const Success = () => {
+export default function Success() {
   return (
     <div className="min-h-[450px] flex items-center text-black">
       <RunConfetti/>
@@ -29,5 +29,3 @@ const Success = () => {
     </div>
   )
 }
-
-export default Success

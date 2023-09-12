@@ -10,7 +10,7 @@ const data = [
   { id: 4, name: "Contact", url: "/contact" }
 ]
 
-const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu, categories }) => {
+function MenuMobile({ showCatMenu, setShowCatMenu, setMobileMenu, categories }) {
   return (
     <motion.ul
         initial={{ opacity: 0 }}
@@ -62,5 +62,3 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu, categories }) 
     </motion.ul>
   )
 }
-
-export default MenuMobile

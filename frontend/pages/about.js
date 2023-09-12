@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 import { Wrapper } from "@/components"
 
 
-const AboutPage = () => {
+export default function AboutPage() {
   return (
     <Wrapper className="flex py-20">
       <motion.img
@@ -31,7 +31,5 @@ const AboutPage = () => {
         </motion.p>
       </div>
     </Wrapper>
-  );
-};
-
-export default AboutPage;
+  )
+}

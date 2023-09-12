@@ -9,7 +9,7 @@ import { makePaymentRequest } from "@/utils/api"
 
 const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY)
 
-const Cart = () => {
+export default function Cart() {
   const [loading, setLoading] = useState(false)
   const { cartItems } = useSelector((state) => state.cart)
   const router = useRouter()
@@ -18,7 +18,7 @@ const Cart = () => {
     return cartItems.reduce((total, val) => total + val.attributes.price, 0)
   }, [cartItems])
 
-  const handlePayment = async () => {
+  async function handlePayment() {
     try {
       setLoading(true)
       const stripe = await stripePromise
@@ -111,7 +111,5 @@ const Cart = () => {
         )}
       </Wrapper>
     </motion.div>
-  );
-};
-
-export default Cart;
+  )
+}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Confetti from 'react-confetti'
 
-const RunConfetti = () => {
+export default function RunConfetti() {
   const [visible, setVisible] = useState(true)
 
   useEffect(() => {
@@ -17,5 +17,3 @@ const RunConfetti = () => {
 
   return <Confetti style={confettiStyle} width={1920} height={960} />
 }
-
-export default RunConfetti

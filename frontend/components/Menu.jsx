@@ -11,7 +11,7 @@ const data = [
 ]
 
 
-const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
+export default function Menu({ showCatMenu, setShowCatMenu, categories }) {
   return (
     <ul className='hidden md:flex items-center gap-8 font-medium text-black'>
       {data.map((item) => {
@@ -53,5 +53,3 @@ const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
     </ul>
   )
 }
-
-export default Menu

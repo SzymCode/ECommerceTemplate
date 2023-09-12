@@ -4,11 +4,11 @@ import { RiDeleteBin6Line } from "react-icons/ri"
 import { updateCart, removeFromCart } from "@/store/cartSlice"
 import { useDispatch } from "react-redux"
 
-const CartItem = ({ data }) => {
+export default function CartItem({ data }) {
   const p = data.attributes
   const dispatch = useDispatch()
 
-  const updateCartItem = (e, key) => {
+  function updateCartItem(e, key) {
     let payload = {
       key,
       val: key === "quantity" ? parseInt(e.target.value) : e.target.value,
@@ -66,5 +66,3 @@ const CartItem = ({ data }) => {
     </div>
   )
 }
-
-export default CartItem

@@ -3,7 +3,7 @@ import Link from "next/link"
 import Image from 'next/image'
 
 
-const ProductCard = ({ data: { attributes: product, id } }) => {
+export default function ProductCard({ data: { attributes: product, id } }) {
   return (
     <div className="transform duration-200 hover:scale-105">
       <Link href={`/product/${product.slug}`}>
@@ -29,5 +29,3 @@ const ProductCard = ({ data: { attributes: product, id } }) => {
     </div>
   )
 }
-
-export default ProductCard

@@ -6,11 +6,10 @@ import { motion } from "framer-motion"
 
 import { Wrapper } from '@/components'
 
-
-export const ContactUs = () => {
+export default function ContactUs() {
   const form = useRef()
 
-  const notify = () => {
+  function notify() {
     toast.success("Your message has been sent!", {
       position: "bottom-right",
       autoClose: 5000,
@@ -23,13 +22,13 @@ export const ContactUs = () => {
     })
   }
 
-  const sendEmail = (e) => {
+  function sendEmail(e) {
     e.preventDefault()
 
     emailjs.sendForm('service_5r0d4hq', 'template_uqipzpd', form.current, 'OEvK-T9_LSzRwvEo9')
       .then((result) => {
           console.log(result.text)
-          notify();
+          notify()
       }, (error) => {
           console.log(error.text)
           toast.error("An error occurred. Please try again.", {
@@ -68,5 +67,3 @@ export const ContactUs = () => {
     </Wrapper>
   )
 }
-
-export default ContactUs

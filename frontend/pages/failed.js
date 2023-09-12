@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 
 import Wrapper from "@/components/Wrapper"
 
-const Failed = () => {
+export default function Failed() {
   return (
     <motion.div
         initial={{ opacity: 0 }}
@@ -29,5 +29,3 @@ const Failed = () => {
     </motion.div>
   )
 }
-
-export default Failed
