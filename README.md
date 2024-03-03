@@ -4,9 +4,10 @@ Store initialization template with all main functionalities. \
 [Preview!](https://e-commerce-template-szymcode.vercel.app/)
   
 
-
-<details><summary> <h2>  🛠️ Installation  </summary>
-
+<br>
+<details><summary> 🛠️ Installation </summary>
+<br>
+  
 • First make sure u have installed latest versions of [ReactJS, NodeJS,](https://react.dev/learn/installation), [Tailwind CSS,](https://tailwindcss.com/docs/installation) [Strapi](https://strapi.io/) and [Redux](https://redux.js.org/introduction/getting-started)
 
 • Clone this repository or download latest release
@@ -19,10 +20,12 @@ npm install
 
 ### **Make sure u have installed all modules!**
 
+<br>
 </details>
 
 
-<details><summary> <h2>  🚀 Run  </summary>
+<details><summary> 🚀 Run </summary>
+<br>
 
 • **_backend_** directory:
 
@@ -36,10 +39,11 @@ npm run develop
 npm run dev
 ```
 
-
+<br>
 </details>  
 
-<details><summary> <h2> ❓ Usage  </summary>
+<details><summary> ❓ Usage </summary>
+<br>
 
 • **_localhost:3000_** - ECommerceTemplate main page
 
